@@ -131,8 +131,60 @@ int main()
     
 
     // Frequency of highest occuring character inside an array
+    char alphabets[26];
+    int m=97;
+    for (int i = 0; i < 26; i++)
+    {
+        char alph=m;
+        alphabets[i]=alph;
+        m++;
+    }
     
+    int freq[26];
+    for (int i = 0; i < 26; i++)
+    {
+        freq[i]=0;
+    }
+    
+    
+    string str17="abbcacbbzazzzzzzzzbbdez";
+    for (int i = 0; i < str17.length(); i++)
+    {
+        char alph=str17[i];
+        
+        for (int j = 0; j < 26; j++)
+        {
+            char abcd=alphabets[j];
+            if (alph==abcd)
+            {
+                freq[j]+=1;
+            }
+            
+        }
+        
+    }
+    
+    
+    int max=freq[0],index;
+    for (int i = 0; i < 26; i++)
+    {
+        if (freq[i]>max)
+        {
+            max=freq[i];
+        }
 
+        for (int j = 0; j < 26; j++)
+        {
+            if (freq[j]==max)
+            {
+                index=j;
+            }
+            
+        }
+        
+          
+    }
+    cout<<"Maximum frequency is of alphabet "<<alphabets[index]<<" and has a frequency of "<<max<<endl;
     
     return 0;
 }
